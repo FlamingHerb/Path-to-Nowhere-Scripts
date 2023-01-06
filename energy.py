@@ -1,3 +1,7 @@
+#=====================================================================================
+# TODO: REWRITE THE FUCKING THING
+# TODO: ADD MORE COMMENTS
+
 import sys
 
 # These two mammoth sized 2D arrays the static values of each increment from one level to another. Due to the nature of Python, the 
@@ -27,6 +31,16 @@ raidrange = [9000, 11000, 13000]
 # Sinner.
 dcc_phases = [24000, 80000, 350000]
 
+# If DisCoins
+distemp = 0
+maniatemp = 0
+
+#===========================
+# INITIALIZATION ENDS HERE
+#===========================
+
+# TODO: Rewrite argument catcher
+# COMMAND:
 # energy(initlevel, estlevel, class, refreshes, phasecost) phasecost = [y,n]
 if len(sys.argv) != 6:
     print("Please give the following arguments!")
@@ -47,11 +61,12 @@ if sys.argv[1] >= sys.argv[2]:
     print("Initial level greater than expected level!")
     quit()
 
-# if sys.argv[3].lower() not in ["b"]:
-#     print(f"WARNING: {sys.argv[3].upper()}-Class not yet implemented. Will use parameter (b).")
-#     sys.argv[3] = "b"
 
-epd = 360 + int(sys.argv[4]) * 100
+epd = 360 + int(sys.argv[4]) * 100      # Energy per day
+initlevel = int(sys.argv[1])            # Initial Level
+estlevel = int(sys.argv[2])             # Estimated Level
+rank = sys.argv[3].lower()              # Sinner Class
+
 
 print(f"Sinner rank:            {sys.argv[3].upper()}")
 print(f"Initial Level:          {sys.argv[1]}")
@@ -64,13 +79,6 @@ print(f"Refreshes per Day:      {sys.argv[4]}")
 print(f"Energy Per Day:         {epd}")
 print("=========================")
 
-initlevel = int(sys.argv[1])
-estlevel = int(sys.argv[2])
-rank = sys.argv[3].lower()
-
-# If DisCoins
-distemp = 0
-maniatemp = 0
 
 # Initial conditions
 # If Sinner Rank is B
@@ -91,10 +99,10 @@ if sys.argv[5].lower() == "y":
         distemp += dcc_phases[0] if rank == "b" else dcc_phases[0] + 6000 if rank == "a" else dcc_phases[0] + 12000
 
     if estlevel >= 40 and initlevel < 40:
-        distemp += dcc_phases[1] if rank == "b" else dcc_phases[0] + 20000 if rank == "a" else dcc_phases[0] + 40000
+        distemp += dcc_phases[1] if rank == "b" else dcc_phases[1] + 20000 if rank == "a" else dcc_phases[1] + 40000
 
     if estlevel >= 70 and initlevel < 70:
-        distemp += dcc_phases[2] if rank == "b" else dcc_phases[0] + 130000 if rank == "a" else dcc_phases[0] + 260000
+        distemp += dcc_phases[2] if rank == "b" else dcc_phases[2] + 130000 if rank == "a" else dcc_phases[2] + 260000
 
 # if phasecost = n, then will only add phase cost AFTER breaching the phase level
 else:
@@ -102,10 +110,10 @@ else:
         distemp += dcc_phases[0] if rank == "b" else dcc_phases[0] + 6000 if rank == "a" else dcc_phases[0] + 12000
 
     if estlevel > 40 and initlevel < 40:
-        distemp += dcc_phases[1] if rank == "b" else dcc_phases[0] + 20000 if rank == "a" else dcc_phases[0] + 40000
+        distemp += dcc_phases[1] if rank == "b" else dcc_phases[1] + 20000 if rank == "a" else dcc_phases[1] + 40000
 
     if estlevel > 70 and initlevel < 70:
-        distemp += dcc_phases[2] if rank == "b" else dcc_phases[0] + 130000 if rank == "a" else dcc_phases[0] + 260000
+        distemp += dcc_phases[2] if rank == "b" else dcc_phases[2] + 130000 if rank == "a" else dcc_phases[2] + 260000
 
 
 
