@@ -72,9 +72,9 @@ print(f"Sinner rank:            {sys.argv[3].upper()}")
 print(f"Initial Level:          {sys.argv[1]}")
 print(f"Estimated Level:        {sys.argv[2]}")
 if sys.argv[5].upper() == "Y":
-    print(f"Phase Cost Inclusive?   YES (Adds phase-up cost if estimated level is equal to 20,40,70)")
+    print(f"Phase Cost Inclusive?   YES (Adds cost to breach to next phase)")
 else:
-    print(f"Phase Cost Inclusive?   NO (Only adds cost after breaching level)")
+    print(f"Phase Cost Inclusive?   NO (Only adds cost after breaching phase)")
 print(f"Refreshes per Day:      {sys.argv[4]}")
 print(f"Energy Per Day:         {epd}")
 print("=========================")
