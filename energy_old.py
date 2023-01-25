@@ -3,8 +3,6 @@
 # TODO: ADD MORE COMMENTS
 
 import sys
-import os
-
 
 # These two mammoth sized 2D arrays the static values of each increment from one level to another. Due to the nature of Python, the 
 # following has been zero-indexed for convenience.
@@ -37,25 +35,6 @@ dcc_phases = [24000, 80000, 350000]
 distemp = 0
 maniatemp = 0
 
-initiallevel = ""
-estimatedlevel = ""
-classes = ""
-refreshes = ""
-phasecost = ""
-
-def clearer():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-def printer():
-    clearer()
-    if initiallevel: print(f"Initial Level: {initiallevel}")
-    if estimatedlevel: print(f"Estimated Level: {estimatedlevel}")
-    if classes: print(f"Sinner Class: {classes}")
-    if refreshes: print(f"Refreshes: {refreshes}")
-    if phasecost: print(f"Phase Cost: {phasecost}")
-    print("=======================================")
-    
-
 #===========================
 # INITIALIZATION ENDS HERE
 #===========================
@@ -63,117 +42,59 @@ def printer():
 # TODO: Rewrite argument catcher
 # COMMAND:
 # energy(initlevel, estlevel, class, refreshes, phasecost) phasecost = [y,n]
-# if len(sys.argv) != 6:
-#     print("Please give the following arguments!")
-#     quit()
-# if phasecost.lower() not in ["y", "n"]:
-#     print("Please say if you want to include phase costs when reaching certain levels (20,40,70)")
-#     quit()
-# if not (-1 < int(refreshes) < 11):
-#     print(f"Refreshes must be up to 0 - 10. Input = {refreshes}") 
-#     quit()
-# if classes.lower() not in ["s", "a", "b"]:
-#     print("Please specify Sinner Class: S-Rank(s), A-Rank(a) or B-Rank (b)")
-#     quit()
-# if isinstance(initiallevel, int) or isinstance(estimatedlevel, int):
-#     print("Please input a non-negative integer!")
-#     quit()
-# if initiallevel >= estimatedlevel:
-#     print("Initial level greater than expected level!")
-#     quit()
+if len(sys.argv) != 6:
+    print("Please give the following arguments!")
+    quit()
+if sys.argv[5].lower() not in ["y", "n"]:
+    print("Please say if you want to include phase costs when reaching certain levels (20,40,70)")
+    quit()
+if not (-1 < int(sys.argv[4]) < 11):
+    print(f"Refreshes must be up to 0 - 10. Input = {sys.argv[4]}") 
+    quit()
+if sys.argv[3].lower() not in ["s", "a", "b"]:
+    print("Please specify Sinner Class: S-Rank(s), A-Rank(a) or B-Rank (b)")
+    quit()
+if isinstance(sys.argv[1], int) or isinstance(sys.argv[2], int):
+    print("Please input a non-negative integer!")
+    quit()
+if sys.argv[1] >= sys.argv[2]:
+    print("Initial level greater than expected level!")
+    quit()
 
 
-
-while True:
-    printer()
-    initiallevel = input("Initial level: ")
-    try:
-        int(initiallevel)
-        if int(initiallevel) <= 0 or int(initiallevel) >= 90:
-            raise ValueError
-        break
-    except ValueError:
-        print("Input is not value.")
-        initiallevel = ""
-
-while True:
-    printer()
-    estimatedlevel = input("Estimated level: ")
-    try:
-        int(estimatedlevel)
-        if int(estimatedlevel) < 0 or int(estimatedlevel) > 90 or int(estimatedlevel) <= int(initiallevel):
-            raise ValueError()
-        break
-    except ValueError:
-        print("Input is not value.")
-        estimatedlevel = ""
+epd = 360 + int(sys.argv[4]) * 100      # Energy per day
+initlevel = int(sys.argv[1])            # Initial Level
+estlevel = int(sys.argv[2])             # Estimated Level
+rank = sys.argv[3].lower()              # Sinner Class
 
 
-while True:
-    printer()
-    classes = input("Sinner Class (S/A/B): ")
-    if classes.lower() not in ["s", "a", "b"]:
-        print("Input correct value.")
-        classes = ""
-    else:
-        break
-
-while True:
-    printer()
-    refreshes = input("Number of Refreshes (0 - 10): ")
-    try:
-        int(refreshes)
-        if not (0 <= int(refreshes) <= 10):
-            raise ValueError()
-        break
-    except ValueError:
-        print("Input should be 0 - 10.")
-        refreshes = ""
-
-while True:
-    printer()
-    phasecost = input("Phase Cost(Y/N): ")
-    if phasecost.lower() not in ["y", "n"]:
-        print("Input Y/N.")
-        phasecost = ""
-    else:
-        break
-
-clearer()
-
-epd = 420 + int(refreshes) * 100      # Energy per day
-initlevel = int(initiallevel)            # Initial Level
-estlevel = int(estimatedlevel)             # Estimated Level
-rank = classes.lower()              # Sinner Class
-
-
-print(f"Sinner rank:            {classes.upper()}")
-print(f"Initial Level:          {initiallevel}")
-print(f"Estimated Level:        {estimatedlevel}")
-if phasecost.upper() == "Y":
+print(f"Sinner rank:            {sys.argv[3].upper()}")
+print(f"Initial Level:          {sys.argv[1]}")
+print(f"Estimated Level:        {sys.argv[2]}")
+if sys.argv[5].upper() == "Y":
     print(f"Phase Cost Inclusive?   YES (Adds cost to breach to next phase)")
 else:
     print(f"Phase Cost Inclusive?   NO (Only adds cost after breaching phase)")
-print(f"Refreshes per Day:      {refreshes}")
+print(f"Refreshes per Day:      {sys.argv[4]}")
 print(f"Energy Per Day:         {epd}")
 print("=========================")
 
 
 # Initial conditions
 # If Sinner Rank is B
-if classes.lower() == "b":
+if sys.argv[3].lower() == "b":
     distemp = discoins[0][estlevel] - discoins[0][initlevel] 
     maniatemp = mania[0][estlevel] - mania[0][initlevel] 
-if classes.lower() == "a":
+if sys.argv[3].lower() == "a":
     distemp = discoins[1][estlevel] - discoins[1][initlevel] 
     maniatemp = mania[1][estlevel] - mania[1][initlevel] 
-if classes.lower() == "s":
+if sys.argv[3].lower() == "s":
     distemp = discoins[2][estlevel] - discoins[2][initlevel] 
     maniatemp = mania[2][estlevel] - mania[2][initlevel] 
 
 # Phase additions (and readability)
 # if phasecost = y, then will add phase cost if specified estimated level is exactly the phase up level.
-if phasecost.lower() == "y":
+if sys.argv[5].lower() == "y":
     if estlevel >= 20 and initlevel < 20:
         distemp += dcc_phases[0] if rank == "b" else dcc_phases[0] + 6000 if rank == "a" else dcc_phases[0] + 12000
 
