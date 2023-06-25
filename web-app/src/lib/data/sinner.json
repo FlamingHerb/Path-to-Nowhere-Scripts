@@ -5,6 +5,270 @@
         "rum_1": "",
         "rum_2": ""
     },
+    "K.K.": {
+        "rank": "b",
+        "tendency": "endura",
+        "rum_1": "blood",
+        "rum_2": "gel"
+    },
+    "Demolia": {
+        "rank": "b",
+        "tendency": "endura",
+        "rum_1": "tear",
+        "rum_2": "elytra"
+    },
+    "Peggy": {
+        "rank": "b",
+        "tendency": "endura",
+        "rum_1": "bronze",
+        "rum_2": "elytra"
+    },
+    "Hella": {
+        "rank": "b",
+        "tendency": "fury",
+        "rum_1": "tentacle",
+        "rum_2": "blood"
+    },
+    "Che": {
+        "rank": "b",
+        "tendency": "fury",
+        "rum_1": "bone",
+        "rum_2": "ice"
+    },
+    "Pepper": {
+        "rank": "b",
+        "tendency": "fury",
+        "rum_1": "horn",
+        "rum_2": "arsen"
+    },
+    "Labyrinth": {
+        "rank": "b",
+        "tendency": "umbra",
+        "rum_1": "gel",
+        "rum_2": "bronze"
+    },
+    "Gekkabijin": {
+        "rank": "b",
+        "tendency": "umbra",
+        "rum_1": "elytra",
+        "rum_2": "twilight"
+    },
+    "EMP": {
+        "rank": "b",
+        "tendency": "reticle",
+        "rum_1": "ice",
+        "rum_2": "cyst"
+    },
+    "Flora": {
+        "rank": "b",
+        "tendency": "reticle",
+        "rum_1": "twilight",
+        "rum_2": "cyst"
+    },
+    "Kelvin": {
+        "rank": "b",
+        "tendency": "arcane",
+        "rum_1": "tear",
+        "rum_2": "tentacle"
+    },
+    "Joan": {
+        "rank": "b",
+        "tendency": "arcane",
+        "rum_1": "arsen",
+        "rum_2": "twilight"
+    },
+    "Macchiato": {
+        "rank": "b",
+        "tendency": "catalyst",
+        "rum_1": "tentacle",
+        "rum_2": "twilight"
+    },
+    "Lisa": {
+        "rank": "b",
+        "tendency": "catalyst",
+        "rum_1": "bone",
+        "rum_2": "tear"
+    },
+
+
+
+    "Hecate": {
+        "rank": "a",
+        "tendency": "arcane",
+        "rum_1": "bone",
+        "rum_2": "twilight"
+    },
+    "Chelsea": {
+        "rank": "a",
+        "tendency": "endura",
+        "rum_1": "twilight",
+        "rum_2": "elytra"
+    },
+    "Cinnabar": {
+        "rank": "a",
+        "tendency": "endura",
+        "rum_1": "blood",
+        "rum_2": "cyst"
+    },
+    "Ninety-Nine": {
+        "rank": "a",
+        "tendency": "fury",
+        "rum_1": "arsen",
+        "rum_2": "tentacle"
+    },
+    "Wendy": {
+        "rank": "a",
+        "tendency": "fury",
+        "rum_1": "bronze",
+        "rum_2": "horn"
+    },
+    "Pacassi": {
+        "rank": "a",
+        "tendency": "fury",
+        "rum_1": "tentacle",
+        "rum_2": "tear"
+    },
+    "Dolly": {
+        "rank": "a",
+        "tendency": "fury",
+        "rum_1": "bone",
+        "rum_2": "arsen"
+    },
+    "Horo": {
+        "rank": "a",
+        "tendency": "fury",
+        "rum_1": "horn",
+        "rum_2": "twilight"
+    },
+    "Iron": {
+        "rank": "a",
+        "tendency": "Umbra",
+        "rum_1": "gel",
+        "rum_2": "arsen"
+    },
+    "Tetra": {
+        "rank": "a",
+        "tendency": "umbra",
+        "rum_1": "elytra",
+        "rum_2": "bronze"
+    },
+    "Sumire": {
+        "rank": "a",
+        "tendency": "umbra",
+        "rum_1": "cyst",
+        "rum_2": "arsen"
+    },
+    "Pricilla": {
+        "rank": "a",
+        "tendency": "reticle",
+        "rum_1": "twilight",
+        "rum_2": "cyst"
+    },
+    "Roulecca": {
+        "rank": "a",
+        "tendency": "reticle",
+        "rum_1": "blood",
+        "rum_2": "elytra"
+    },
+    "Wolverine": {
+        "rank": "a",
+        "tendency": "reticle",
+        "rum_1": "tear",
+        "rum_2": "bone"
+    },
+    "Victoria": {
+        "rank": "a",
+        "tendency": "arcane",
+        "rum_1": "arsen",
+        "rum_2": "bone"
+    },
+    "Ignis": {
+        "rank": "a",
+        "tendency": "arcane",
+        "rum_1": "bronze",
+        "rum_2": "horn"
+    },
+    "Luvia Ray": {
+        "rank": "a",
+        "tendency": "arcane",
+        "rum_1": "tentacle",
+        "rum_2": "ice"
+    },
+    "Oliver": {
+        "rank": "a",
+        "tendency": "arcane",
+        "rum_1": "horn",
+        "rum_2": "twilight"
+    },
+    "Ariel": {
+        "rank": "a",
+        "tendency": "catalyst",
+        "rum_1": "gel",
+        "rum_2": "blood"
+    },
+    "Chameleon": {
+        "rank": "a",
+        "tendency": "catalyst",
+        "rum_1": "elytra",
+        "rum_2": "bronze"
+    },
+    "Anne": {
+        "rank": "a",
+        "tendency": "catalyst",
+        "rum_1": "cyst",
+        "rum_2": "ice"
+    },
+    "Fox": {
+        "rank": "a",
+        "tendency": "catalyst",
+        "rum_1": "ice",
+        "rum_2": "cyst"
+    },
+    "Kawa-kawa": {
+        "rank": "a",
+        "tendency": "endura",
+        "rum_1": "tear",
+        "rum_2": "horn"
+    },
+    "Mess": {
+        "rank": "a",
+        "tendency": "fury",
+        "rum_1": "gel",
+        "rum_2": "ice"
+    },
+    "McQueen": {
+        "rank": "a",
+        "tendency": "umbra",
+        "rum_1": "cyst",
+        "rum_2": "bronze"
+    },
+    "Dudu": {
+        "rank": "a",
+        "tendency": "catalyst",
+        "rum_1": "twilight",
+        "rum_2": "gel"
+    },
+    "Lynn": {
+        "rank": "a",
+        "tendency": "umbra",
+        "rum_1": "arsen",
+        "rum_2": "gel"
+    },
+    "Levy": {
+        "rank": "a",
+        "tendency": "endura",
+        "rum_1": "tentacle",
+        "rum_2": "tear"
+    },
+    "Corso": {
+        "rank": "a",
+        "tendency": "fury",
+        "rum_1": "horn",
+        "rum_2": "blood"
+    },
+
+
+    
     "Demon": {
         "rank": "s",
         "tendency": "endura",
@@ -106,17 +370,6 @@
         "tendency": "arcane",
         "rum_1": "bone",
         "rum_2": "bronze"
-    },
-    "Hecate": {
-        "rank": "a",
-        "tendency": "arcane",
-        "rum_1": "bone",
-        "rum_2": "twilight"
-    },
-    "K.K.": {
-        "rank": "b",
-        "tendency": "endura",
-        "rum_1": "blood",
-        "rum_2": "gel"
     }
+    
 }
