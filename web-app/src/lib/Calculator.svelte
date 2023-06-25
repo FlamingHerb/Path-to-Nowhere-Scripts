@@ -10,17 +10,54 @@
     let black_key_available = false;
     let phase_cost_yes = false;
 
+    const increment = varName => () => {
+        switch(varName){
+            case "init":
+                if (initial_level < goal_level - 1){
+                    initial_level += 1;
+                }
+                break;
+            case "goal":
+                if (goal_level < 90){
+                    goal_level += 1;
+                }
+                break;
+        }
+    }
 
+    const decrement = varName => () => {
+        switch(varName){
+            case "init":
+                if (initial_level > 1){
+                    initial_level -= 1;
+                }
+                break;
+            case "goal":
+                if (initial_level < goal_level - 1){
+                    goal_level -= 1;
+                }
+                break;
+        }
+    }
 </script>
 
 <span>Initial Level:</span>
 <input bind:value={initial_level}/>
+<button on:click={increment("init")}>Plus</button>
+<button on:click={decrement("init")}>Minus</button>
+<br>
 
 <span>Goal Level:</span>
 <input bind:value={goal_level}/>
+<button on:click={increment("goal")}>Plus</button>
+<button on:click={decrement("goal")}>Minus</button>
+<br>
 
 <span>Sinner Class:</span>
 <input bind:value={refreshes}/>
 
-<h1>Discoins Need</h1>
+<h1>Discoins Needed</h1>
+<h2>{Discoins['s'][goal_level] - Discoins['s'][initial_level]}</h2>
+
+<h1>Mania Needed Needed</h1>
 <h2>{Mania['s'][goal_level] - Mania['s'][initial_level]}</h2>
