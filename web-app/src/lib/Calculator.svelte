@@ -53,11 +53,14 @@
 <button on:click={decrement("goal")}>Minus</button>
 <br>
 
-<span>Sinner Class:</span>
-<input bind:value={refreshes}/>
+<select bind:value={sinner_class}>
+    <option value="s">s</option>
+    <option value="a">a</option>
+    <option value="b">b</option>
+</select>
 
 <h1>Discoins Needed</h1>
-<h2>{Discoins['s'][goal_level] - Discoins['s'][initial_level]}</h2>
+<h2>{Discoins[sinner_class][goal_level] - Discoins[sinner_class][initial_level]}</h2>
 
 <h1>Mania Needed Needed</h1>
-<h2>{Mania['s'][goal_level] - Mania['s'][initial_level]}</h2>
+<h2>{Mania[sinner_class][goal_level] - Mania[sinner_class][initial_level]}</h2>
