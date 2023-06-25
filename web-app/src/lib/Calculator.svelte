@@ -9,7 +9,6 @@
     let sinner_class = "b";
     let refreshes = 0;                  // Range: 0 - 10
     let black_key_available = false;
-    let phase_cost_yes = false;
 
     const increment = varName => () => {
         switch(varName){
@@ -77,7 +76,39 @@
 
 <h1>Discoins Needed</h1>
 <h2>{Discoins[sinner_class][goal_level] - Discoins[sinner_class][initial_level]}</h2>
-
+{#if initial_level < 20 && goal_level >= 20}
+    <h2>Phase 1 Cost:
+        {#if sinner_class == "b"}
+            24000
+        {:else if sinner_class == "a"}
+            30000
+        {:else if sinner_class == "s"}
+            36000
+        {/if}
+    </h2>
+{/if}
+{#if initial_level < 40 && goal_level >= 40}
+    <h2>Phase 2 Cost:
+        {#if sinner_class == "b"}
+            80000
+        {:else if sinner_class == "a"}
+            100000
+        {:else if sinner_class == "s"}
+            120000
+        {/if}
+    </h2>
+{/if}
+{#if initial_level < 70 && goal_level >= 70}
+    <h2>Phase 3 Cost:
+        {#if sinner_class == "b"}
+            350000
+        {:else if sinner_class == "a"}
+            480000
+        {:else if sinner_class == "s"}
+            560000
+        {/if}
+    </h2>
+{/if}
 <h1>Mania Needed Needed</h1>
 <h2>{Mania[sinner_class][goal_level] - Mania[sinner_class][initial_level]}</h2>
 
