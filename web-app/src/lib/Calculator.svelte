@@ -1,6 +1,7 @@
 <script>
     import Mania from '$lib/data/mania.json';
     import Discoins from '$lib/data/discoin.json';
+    import Sinners from '$lib/data/sinner.json';
 
     let initial_level = 1;              // Range: 1 - 89
     let goal_level = 2;                 // Range: 2 - 90
@@ -39,6 +40,11 @@
                 break;
         }
     }
+
+    const sinnerChange = () => {
+        sinner_class = Sinners[sinner].rank;
+    }
+
 </script>
 
 <span>Initial Level:</span>
@@ -53,10 +59,20 @@
 <button on:click={decrement("goal")}>Minus</button>
 <br>
 
-<select bind:value={sinner_class}>
+<!-- <select bind:value={sinner_class}>
     <option value="s">s</option>
     <option value="a">a</option>
     <option value="b">b</option>
+</select> -->
+
+{sinner_class}
+
+<select bind:value={sinner} on:change={sinnerChange}>
+    {#each Object.keys(Sinners) as sinner}
+        <option value={sinner}>
+            {sinner}
+        </option>
+    {/each}
 </select>
 
 <h1>Discoins Needed</h1>
@@ -64,3 +80,4 @@
 
 <h1>Mania Needed Needed</h1>
 <h2>{Mania[sinner_class][goal_level] - Mania[sinner_class][initial_level]}</h2>
+

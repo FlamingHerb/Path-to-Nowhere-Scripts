@@ -1,0 +1,122 @@
+{
+    "Sinner": {
+        "rank": "b",
+        "tendency": "endura",
+        "rum_1": "",
+        "rum_2": ""
+    },
+    "Demon": {
+        "rank": "s",
+        "tendency": "endura",
+        "rum_1": "ice",
+        "rum_2": "horn"
+    },
+    "Zoya": {
+        "rank": "s",
+        "tendency": "fury",
+        "rum_1": "blood",
+        "rum_2": "gel"
+    },
+    "NOX": {
+        "rank": "s",
+        "tendency": "fury",
+        "rum_1": "tear",
+        "rum_2": "cyst"
+    },
+    "Bai Yi": {
+        "rank": "s",
+        "tendency": "umbra",
+        "rum_1": "arsen",
+        "rum_2": "elytra"
+    },
+    "Crache": {
+        "rank": "s",
+        "tendency": "umbra",
+        "rum_1": "bronze",
+        "rum_2": "gel"
+    },
+    "Summer": {
+        "rank": "s",
+        "tendency": "reticle",
+        "rum_1": "tentacle",
+        "rum_2": "ice"
+    },
+    "Langley": {
+        "rank": "s",
+        "tendency": "reticle",
+        "rum_1": "bone",
+        "rum_2": "bronze"
+    },
+    "Eirene": {
+        "rank": "s",
+        "tendency": "arcane",
+        "rum_1": "gel",
+        "rum_2": "blood"
+    },
+    "Hamel": {
+        "rank": "s",
+        "tendency": "catalyst",
+        "rum_1": "ice",
+        "rum_2": "elytra"
+    },
+    "Stargazer": {
+        "rank": "s",
+        "tendency": "arcane",
+        "rum_1": "cyst",
+        "rum_2": "arsen"
+    },
+    "Serpent": {
+        "rank": "s",
+        "tendency": "umbra",
+        "rum_1": "horn",
+        "rum_2": "blood"
+    },
+    "Enfer": {
+        "rank": "s",
+        "tendency": "catalyst",
+        "rum_1": "elytra",
+        "rum_2": "arsen"
+    },
+    "Oak Casket": {
+        "rank": "s",
+        "tendency": "reticle",
+        "rum_1": "ice",
+        "rum_2": "tentacle"
+    },
+    "OwO": {
+        "rank": "s",
+        "tendency": "endura",
+        "rum_1": "tear",
+        "rum_2": "bone"
+    },
+    "Deren": {
+        "rank": "s",
+        "tendency": "fury",
+        "rum_1": "blood",
+        "rum_2": "tentacle"
+    },
+    "Etti": {
+        "rank": "s",
+        "tendency": "arcane",
+        "rum_1": "bronze",
+        "rum_2": "bone"
+    },
+    "Raven": {
+        "rank": "s",
+        "tendency": "arcane",
+        "rum_1": "bone",
+        "rum_2": "bronze"
+    },
+    "Hecate": {
+        "rank": "a",
+        "tendency": "arcane",
+        "rum_1": "bone",
+        "rum_2": "twilight"
+    },
+    "K.K.": {
+        "rank": "b",
+        "tendency": "endura",
+        "rum_1": "blood",
+        "rum_2": "gel"
+    }
+}
