@@ -5,7 +5,7 @@
 
     let initial_level = 1;              // Range: 1 - 89
     let goal_level = 2;                 // Range: 2 - 90
-    let sinner = "";                    // For now, ignore.
+    let sinner = "Sinner";                    // For now, ignore.
     let sinner_class = "b";
     let refreshes = 0;                  // Range: 0 - 10
     let black_key_available = false;
@@ -76,6 +76,7 @@
 
 <h1>Discoins Needed</h1>
 <h2>{Discoins[sinner_class][goal_level] - Discoins[sinner_class][initial_level]}</h2>
+
 {#if initial_level < 20 && goal_level >= 20}
     <h2>Phase 1 Cost:
         {#if sinner_class == "b"}
@@ -109,6 +110,19 @@
         {/if}
     </h2>
 {/if}
+
 <h1>Mania Needed Needed</h1>
 <h2>{Mania[sinner_class][goal_level] - Mania[sinner_class][initial_level]}</h2>
 
+<h1>Materials Needed</h1>
+{#if initial_level < 20 && goal_level >= 20}
+    <ul>Phase 1 Cost:
+        {#if sinner_class == "b"}
+            <li>12 {Sinners[sinner].tendency} Fluid</li>
+        {:else if sinner_class == "a"}
+            30000
+        {:else if sinner_class == "s"}
+            36000
+        {/if}
+    </ul>
+{/if}
