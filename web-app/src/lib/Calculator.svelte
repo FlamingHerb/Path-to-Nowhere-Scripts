@@ -9,6 +9,8 @@
     let sinner_class = "b";
     let refreshes = 0;                  // Range: 0 - 10
     let black_key_available = false;
+    let mat_cost = [[12,30,15],[12,30,15],[20,54,30]];
+    let mat_cost_rarity = [[1,1,1],[2,2,2],[3,3,3]];
 
     const increment = varName => () => {
         switch(varName){
@@ -42,6 +44,20 @@
 
     const sinnerChange = () => {
         sinner_class = Sinners[sinner].rank;
+        switch(sinner_class){
+            case "s":
+                mat_cost = [[18,16,8],[18,16,8],[30,28,15]];
+                mat_cost_rarity = [[1,2,2],[2,3,3],[3,4,4]];
+                break;
+            case "a":
+                mat_cost = [[15,12,18],[15,12,18],[25,24,36]];
+                mat_cost_rarity = [[1,2,1],[2,3,2],[3,4,3]];
+                break;
+            case "b":
+                mat_cost = [[12,30,15],[12,30,15],[20,54,30]];
+                mat_cost_rarity = [[1,1,1],[2,2,2],[3,3,3]];
+                break;
+        }
     }
 
 </script>
@@ -117,12 +133,16 @@
 <h1>Materials Needed</h1>
 {#if initial_level < 20 && goal_level >= 20}
     <ul>Phase 1 Cost:
-        {#if sinner_class == "b"}
-            <li>12 {Sinners[sinner].tendency} Fluid</li>
-        {:else if sinner_class == "a"}
-            30000
-        {:else if sinner_class == "s"}
-            36000
-        {/if}
+        <li><img src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[0][0]}.png"></li>
+    </ul>
+{/if}
+{#if initial_level < 40 && goal_level >= 40}
+    <ul>Phase 2 Cost:
+        <li><img src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[1][0]}.png"></li>
+    </ul>
+{/if}
+{#if initial_level < 70 && goal_level >= 70}
+    <ul>Phase 2 Cost:
+        <li><img src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[2][0]}.png"></li>
     </ul>
 {/if}
