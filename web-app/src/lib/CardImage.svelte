@@ -1,4 +1,5 @@
-<div class="matcard">
+
+<div class="matcard ">
     <slot />
 </div>
 
@@ -27,7 +28,6 @@
     .matcard {
         background-color: #000;
         position: relative;
-        border: 1px solid #6B7998;
         max-height: 96px;
         max-width: 96px;
     }
