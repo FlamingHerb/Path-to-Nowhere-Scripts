@@ -31,10 +31,16 @@
         max-height: 96px;
         max-width: 96px;
     }
-    .matcard :global(> :last-child) {
+
+    .matcard :global(.mat_overlay) {
+        position: absolute;
+        top: 0;
+    }
+
+    .matcard :global(span) {
         font-family: 'HYQiHeiB5-55';
         position:absolute;
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(0,0,0,0.69);
         color: #fff;
         text-align: right;
         width: 91px;
