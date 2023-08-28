@@ -1,16 +1,19 @@
 <script>
+    import CardImage from '$lib/CardImage.svelte';
+
     import Mania from '$lib/data/mania.json';
     import Discoins from '$lib/data/discoin.json';
     import Sinners from '$lib/data/sinner.json';
 
     let initial_level = 1;              // Range: 1 - 89
-    let goal_level = 2;                 // Range: 2 - 90
-    let sinner = "Sinner";                    // For now, ignore.
+    let goal_level = 70;                 // Range: 2 - 90
+    let sinner = "Che";                    // For now, ignore.
     let sinner_class = "b";
     let refreshes = 0;                  // Range: 0 - 10
     let black_key_available = false;
     let mat_cost = [[12,30,15],[12,30,15],[20,54,30]];
     let mat_cost_rarity = [[1,1,1],[2,2,2],[3,3,3]];
+    let discoin_cost = [24000,80000,350000];
 
     const increment = varName => () => {
         switch(varName){
@@ -48,14 +51,17 @@
             case "s":
                 mat_cost = [[18,16,8],[18,16,8],[30,28,15]];
                 mat_cost_rarity = [[1,2,2],[2,3,3],[3,4,4]];
+                discoin_cost = [36000,120000,560000];
                 break;
             case "a":
                 mat_cost = [[15,12,18],[15,12,18],[25,24,36]];
                 mat_cost_rarity = [[1,2,1],[2,3,2],[3,4,3]];
+                discoin_cost = [30000,100000,480000];
                 break;
             case "b":
                 mat_cost = [[12,30,15],[12,30,15],[20,54,30]];
                 mat_cost_rarity = [[1,1,1],[2,2,2],[3,3,3]];
+                discoin_cost = [24000,80000,350000];
                 break;
         }
     }
@@ -90,10 +96,25 @@
     {/each}
 </select>
 
-<h1>Discoins Needed</h1>
-<h2>{Discoins[sinner_class][goal_level] - Discoins[sinner_class][initial_level]}</h2>
+<h1>Currency Needed:</h1>
+<table>
+    <tr>
+        <td>
+            <CardImage>
+                <img style="width: 128px" src="currency/discoin.png" alt="">
+                <span>{Discoins[sinner_class][goal_level] - Discoins[sinner_class][initial_level]}</span>
+            </CardImage>
+        </td>
+        <td>
+            <CardImage>
+                <img style="width: 128px" src="currency/mania.png" alt="">
+                <span>{Mania[sinner_class][goal_level] - Mania[sinner_class][initial_level]}</span>
+            </CardImage>
+        </td>
+    </tr>
+</table>
 
-{#if initial_level < 20 && goal_level >= 20}
+<!-- {#if initial_level < 20 && goal_level >= 20}
     <h2>Phase 1 Cost:
         {#if sinner_class == "b"}
             24000
@@ -125,24 +146,105 @@
             560000
         {/if}
     </h2>
-{/if}
+{/if} -->
 
-<h1>Mania Needed Needed</h1>
-<h2>{Mania[sinner_class][goal_level] - Mania[sinner_class][initial_level]}</h2>
-
-<h1>Materials Needed</h1>
+<h1>Materials Needed:</h1>
 {#if initial_level < 20 && goal_level >= 20}
-    <ul>Phase 1 Cost:
-        <li><img src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[0][0]}.png"></li>
-    </ul>
+    <table>
+        <tr>
+            <th>Phase 1 Cost:</th>
+        </tr>
+        <tr>
+            <td>
+                <CardImage>
+                    <img src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[0][0]}.png" alt="">
+                    <span>{mat_cost[0][0]}</span>
+                </CardImage>
+            </td>
+            <td>
+                <CardImage>
+                    <img src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[0][1]}.png" alt="">
+                    <span>{mat_cost[0][1]}</span>
+                </CardImage>
+            </td>
+            <td>
+                <CardImage>
+                    <img src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[0][2]}.png" alt="">
+                    <span>{mat_cost[0][2]}</span>
+                </CardImage>
+            </td>
+            <td>
+                <CardImage>
+                    <img style="width: 128px" src="currency/discoin.png" alt="">
+                    <span>{discoin_cost[0]}</span>
+                </CardImage>
+            </td>
+        </tr>
+    </table>
 {/if}
 {#if initial_level < 40 && goal_level >= 40}
-    <ul>Phase 2 Cost:
-        <li><img src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[1][0]}.png"></li>
-    </ul>
+    <table>
+        <tr>
+            <th>Phase 2 Cost:</th>
+        </tr>
+        <tr>
+            <td>
+                <CardImage>
+                    <img src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[1][0]}.png" alt="">
+                    <span>{mat_cost[1][0]}</span>
+                </CardImage>
+            </td>
+            <td>
+                <CardImage>
+                    <img src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[1][1]}.png" alt="">
+                    <span>{mat_cost[1][1]}</span>
+                </CardImage>
+            </td>
+            <td>
+                <CardImage>
+                    <img src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[1][2]}.png" alt="">
+                    <span>{mat_cost[1][2]}</span>
+                </CardImage>
+            </td>
+            <td>
+                <CardImage>
+                    <img style="width: 128px" src="currency/discoin.png" alt="">
+                    <span>{discoin_cost[1]}</span>
+                </CardImage>
+            </td>
+        </tr>
+    </table>
 {/if}
 {#if initial_level < 70 && goal_level >= 70}
-    <ul>Phase 2 Cost:
-        <li><img src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[2][0]}.png"></li>
-    </ul>
+    <table>
+        <tr>
+            <th>Phase 3 Cost:</th>
+        </tr>
+        <tr>
+            <td>
+                <CardImage>
+                    <img src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[2][0]}.png" alt="">
+                    <span>{mat_cost[2][0]}</span>
+                </CardImage>
+            </td>
+            <td>
+                <CardImage>
+                    <img src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[2][1]}.png" alt="">
+                    <span>{mat_cost[2][1]}</span>
+                </CardImage>
+            </td>
+            <td>
+                <CardImage>
+                    <img src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[2][2]}.png" alt="">
+                    <span>{mat_cost[2][2]}</span>
+                </CardImage>
+            </td>
+            <td>
+                <CardImage>
+                    <img style="width: 128px" src="currency/discoin.png" alt="">
+                    <span>{discoin_cost[2]}</span>
+                </CardImage>
+            </td>
+        </tr>
+    </table>
 {/if}
