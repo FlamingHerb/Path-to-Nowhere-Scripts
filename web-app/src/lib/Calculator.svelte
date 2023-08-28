@@ -87,7 +87,7 @@
     <option value="b">b</option>
 </select> -->
 
-{sinner_class}
+
 
 <select bind:value={sinner} on:change={sinnerChange}>
     {#each Object.keys(Sinners) as sinner}
