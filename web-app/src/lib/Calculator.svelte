@@ -14,7 +14,7 @@
     let mat_cost = [[12,30,15],[12,30,15],[20,54,30]];
     let mat_cost_rarity = [[1,1,1],[2,2,2],[3,3,3]];
     let discoin_cost = [24000,80000,350000];
-    let image_size = 96;
+    let image_size = 64;
 
     const increment = varName => () => {
         switch(varName){
@@ -306,20 +306,38 @@
 {/if}
 
 <style lang="scss">
+    :global(body) {
+        font-family: 'SUIT SemiBold';
+        background-color: black;
+        color: white;
+    }
     .mat_rarity_1 {
-        border: 2px solid #9EAAC3;
-        border-radius: 2px;
+        border: 1px solid #9EAAC3;
+        border-bottom-width: 2px;
+        border-radius: 1px;
     }
     .mat_rarity_2 {
-        border: 2px solid #4CD5A3;
-        border-radius: 2px;
+        border-width: 1px;
+        border-style: solid;
+        border-image: linear-gradient(#9EAAC3, #9EAAC3, #4CD5A3) 1;
+        // border: 2px solid #4CD5A3;
+        border-bottom-width: 2px;
+        border-radius: 1px;
     }
     .mat_rarity_3 {
-        border: 2px solid #75AAF1;
-        border-radius: 2px;
+        border-width: 1px;
+        border-style: solid;
+        border-image: linear-gradient(#9EAAC3, #9EAAC3, #75AAF1) 1;
+        // border: 2px solid #75AAF1;
+        border-bottom-width: 2px;
+        border-radius: 1px;
     }
     .mat_rarity_4 {
-        border: 2px solid #F1AEFF;
-        border-radius: 2px;
+        border-width: 1px;
+        border-style: solid;
+        border-image: linear-gradient(#9EAAC3, #9EAAC3, #F1AEFF) 1;
+        // border: 2px solid #F1AEFF;
+        border-bottom-width: 2px;
+        border-radius: 1px;
     }
 </style>
