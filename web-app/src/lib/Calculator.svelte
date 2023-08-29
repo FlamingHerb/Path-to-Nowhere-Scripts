@@ -69,6 +69,8 @@
 
 </script>
 
+<img src="profiles/{sinner.toLowerCase()}.png" alt="">
+
 <span>Initial Level:</span>
 <input bind:value={initial_level}/>
 <button on:click={increment("init")}>Plus</button>
@@ -306,9 +308,18 @@
 {/if}
 
 <style lang="scss">
+    h1 {
+        font-size: 1rem;
+    }
+
     :global(body) {
+        min-height: 660px;
         font-family: 'SUIT SemiBold';
-        background-color: black;
+        background: url("background/closeup.png");
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: top;
+        background-repeat: no-repeat;
         color: white;
     }
     .mat_rarity_1 {
