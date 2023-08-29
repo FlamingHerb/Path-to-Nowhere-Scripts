@@ -260,6 +260,36 @@
         "rum_1": "horn",
         "rum_2": "blood"
     },
+    "Uni": {
+        "rank": "a",
+        "tendency": "endura",
+        "rum_1": "elytra",
+        "rum_2": "tear"
+    },
+    "Letta": {
+        "rank": "a",
+        "tendency": "catalyst",
+        "rum_1": "ice",
+        "rum_2": "horn"
+    },
+    "Lamia": {
+        "rank": "a",
+        "tendency": "arcane",
+        "rum_1": "blood",
+        "rum_2": "gel"
+    },
+    "Garofano": {
+        "rank": "a",
+        "tendency": "umbra",
+        "rum_1": "cyst",
+        "rum_2": "bronze"
+    },
+    "Christina": {
+        "rank": "a",
+        "tendency": "fury",
+        "rum_1": "bone",
+        "rum_2": "blood"
+    },
 
 
     
@@ -364,6 +394,42 @@
         "tendency": "arcane",
         "rum_1": "bone",
         "rum_2": "bronze"
+    },
+    "Dreya": {
+        "rank": "s",
+        "tendency": "reticle",
+        "rum_1": "gel",
+        "rum_2": "ice"
+    },
+    "Adela": {
+        "rank": "s",
+        "tendency": "umbra",
+        "rum_1": "cyst",
+        "rum_2": "twilight"
+    },
+    "Cabernet": {
+        "rank": "s",
+        "tendency": "catalyst",
+        "rum_1": "twilight",
+        "rum_2": "horn"
+    },
+    "Rahu": {
+        "rank": "s",
+        "tendency": "endura",
+        "rum_1": "tear",
+        "rum_2": "tentacle"
+    },
+    "Shalom": {
+        "rank": "s",
+        "tendency": "reticle",
+        "rum_1": "bronze",
+        "rum_2": "horn"
+    },
+    "Coquelic": {
+        "rank": "s",
+        "tendency": "catalyst",
+        "rum_1": "tentacle",
+        "rum_2": "twilight"
     }
     
 }
