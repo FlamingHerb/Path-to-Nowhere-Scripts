@@ -1,6 +1,4 @@
 <script>
-
-
     import CardImage from '$lib/CardImage.svelte';
 
     import Mania from '$lib/data/mania.json';
@@ -71,19 +69,60 @@
 
 </script>
 
-<img src="profiles/{sinner.toLowerCase()}.png" alt="">
+<div id="sinner-selection">
+    <img width="250px" src="profiles/{sinner.toLowerCase()}.png" alt="">
+    <h1>Select a Sinner</h1>
+    <select bind:value={sinner} on:change={sinnerChange}>
+        {#each Object.keys(Sinners) as sinner}
+            <option value={sinner}>
+                {sinner}
+            </option>
+        {/each}
+    </select>
+</div>
 
-<span>Initial Level:</span>
-<input bind:value={initial_level}/>
-<button on:click={increment("init")}>Plus</button>
-<button on:click={decrement("init")}>Minus</button>
-<br>
+<input hidden bind:value={initial_level}/>
+<input hidden bind:value={goal_level}/>
 
-<span>Goal Level:</span>
-<input bind:value={goal_level}/>
-<button on:click={increment("goal")}>Plus</button>
-<button on:click={decrement("goal")}>Minus</button>
-<br>
+<table id="level-up-prompt" style="margin: auto;">
+    <tr>
+        <td colspan="3">
+            Initial Level
+        </td>
+        <td>
+
+        </td>
+        <td colspan="3">
+            Goal Level
+        </td>
+    </tr>
+    <!-- Numbers and transition-->
+    <tr>
+        <td>
+            <button class="level-up-button" on:click={decrement("init")}>-</button>
+        </td>
+        <td>
+            <span class="level-up-number">{initial_level}</span>
+        </td>
+        <td>
+            <button class="level-up-button" on:click={increment("init")}>+</button>
+        </td>
+
+        <td>
+            <img width="32px" src="/bg/levelupdirection.png" alt="">
+        </td>
+
+        <td>
+            <button class="level-up-button" on:click={decrement("goal")}>-</button>
+        </td>
+        <td>
+            <span class="level-up-number">{goal_level}</span>
+        </td>
+        <td>
+            <button class="level-up-button" on:click={increment("goal")}>+</button>
+        </td>
+    </tr>
+</table>
 
 <!-- <select bind:value={sinner_class}>
     <option value="s">s</option>
@@ -92,17 +131,8 @@
 </select> -->
 
 
-
-<select bind:value={sinner} on:change={sinnerChange}>
-    {#each Object.keys(Sinners) as sinner}
-        <option value={sinner}>
-            {sinner}
-        </option>
-    {/each}
-</select>
-
 {#if sinner == "Sinner" || sinner == ""}
-    <h1>Pick a sinner!</h1>
+    <h1>a</h1>
 {:else}
     <h1>Currency Needed:</h1>
     <table>
@@ -310,20 +340,40 @@
 {/if}
 
 <style lang="scss">
-    h1 {
-        font-size: 1rem;
-    }
 
     :global(body) {
-        min-height: 660px;
-        font-family: 'SUIT SemiBold';
+        font-family: 'Pretendard Medium';
         background: url("/bg/closeup.png");
-        background-size: cover;
         background-position-x: center;
         background-position-y: top;
         background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
         color: white;
     }
+
+    .level-up-button {
+        background-color: transparent !important;
+        font-family: 'Pretendard Medium';
+        font-size: 24px;
+        color: #9EAAC3;
+        border: none;
+    }
+
+    .level-up-number {
+        font-family: 'Pretendard Medium';
+        font-size: 40px;
+
+    }
+
+    #level-up-prompt {
+        text-align: center;
+
+        td {
+            width: 50px;
+        }
+    }
+
     .mat_rarity_1 {
         border: 1px solid #9EAAC3;
         border-bottom-width: 2px;
