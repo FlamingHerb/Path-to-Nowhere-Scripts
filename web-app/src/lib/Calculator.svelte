@@ -1,4 +1,6 @@
 <script>
+
+
     import CardImage from '$lib/CardImage.svelte';
 
     import Mania from '$lib/data/mania.json';
@@ -315,7 +317,7 @@
     :global(body) {
         min-height: 660px;
         font-family: 'SUIT SemiBold';
-        background: url("bg/closeup.png");
+        background: url("/bg/closeup.png");
         background-size: cover;
         background-position-x: center;
         background-position-y: top;
