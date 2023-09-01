@@ -315,7 +315,7 @@
     :global(body) {
         min-height: 660px;
         font-family: 'SUIT SemiBold';
-        background: url("background/closeup.png");
+        background: url("bg/closeup.png");
         background-size: cover;
         background-position-x: center;
         background-position-y: top;
