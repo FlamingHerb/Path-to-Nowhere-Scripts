@@ -128,7 +128,7 @@
     {#if sinner == "Sinner" || sinner == ""}
         <h1>a</h1>
     {:else}
-        <h1>Currency Needed:</h1>
+        <!-- <h1>Currency Needed:</h1> -->
         <table>
             <tr>
                 <td>
@@ -371,6 +371,7 @@
     #sinner-details {
         padding: 8px;
         width: 100%;
+        min-height: 70vh;
         background-color: black;
     }
 
