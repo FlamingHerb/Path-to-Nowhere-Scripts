@@ -70,8 +70,8 @@
 </script>
 
 <div id="sinner-selection">
-    <img width="250px" src="profiles/{sinner.toLowerCase()}.png" alt="">
-    <h1>Select a Sinner</h1>
+    <img src="profiles/{sinner.toLowerCase()}.png" alt="">
+    <h1>{sinner}</h1>
     <select bind:value={sinner} on:change={sinnerChange}>
         {#each Object.keys(Sinners) as sinner}
             <option value={sinner}>
@@ -81,266 +81,262 @@
     </select>
 </div>
 
-<input hidden bind:value={initial_level}/>
-<input hidden bind:value={goal_level}/>
+<div id="sinner-details">
+    <input hidden bind:value={initial_level}/>
+    <input hidden bind:value={goal_level}/>
 
-<table id="level-up-prompt" style="margin: auto;">
-    <tr>
-        <td colspan="3">
-            Initial Level
-        </td>
-        <td>
-
-        </td>
-        <td colspan="3">
-            Goal Level
-        </td>
-    </tr>
-    <!-- Numbers and transition-->
-    <tr>
-        <td>
-            <button class="level-up-button" on:click={decrement("init")}>-</button>
-        </td>
-        <td>
-            <span class="level-up-number">{initial_level}</span>
-        </td>
-        <td>
-            <button class="level-up-button" on:click={increment("init")}>+</button>
-        </td>
-
-        <td>
-            <img width="32px" src="/bg/levelupdirection.png" alt="">
-        </td>
-
-        <td>
-            <button class="level-up-button" on:click={decrement("goal")}>-</button>
-        </td>
-        <td>
-            <span class="level-up-number">{goal_level}</span>
-        </td>
-        <td>
-            <button class="level-up-button" on:click={increment("goal")}>+</button>
-        </td>
-    </tr>
-</table>
-
-<!-- <select bind:value={sinner_class}>
-    <option value="s">s</option>
-    <option value="a">a</option>
-    <option value="b">b</option>
-</select> -->
-
-
-{#if sinner == "Sinner" || sinner == ""}
-    <h1>a</h1>
-{:else}
-    <h1>Currency Needed:</h1>
-    <table>
+    <table id="level-up-prompt" style="margin: auto;">
         <tr>
-            <td>
-                <div class="mat_rarity_2">
-                    <CardImage>
-                        <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
-                        <img style="width: {image_size}px" src="currency/discoin.png" alt="">
-                        <span>{Discoins[sinner_class][goal_level] - Discoins[sinner_class][initial_level]}</span>
-                    </CardImage>
-                </div>
+            <td colspan="3">
+                Initial Level
             </td>
             <td>
-                <div class="mat_rarity_2">
-                    <CardImage>
-                        <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
-                        <img style="width: {image_size}px" src="currency/mania.png" alt="">
-                        <span>{Mania[sinner_class][goal_level] - Mania[sinner_class][initial_level]}</span>
-                    </CardImage>
-                </div>
+
+            </td>
+            <td colspan="3">
+                Goal Level
+            </td>
+        </tr>
+        <!-- Numbers and transition-->
+        <tr>
+            <td>
+                <button class="level-up-button" on:click={decrement("init")}>-</button>
+            </td>
+            <td>
+                <span class="level-up-number">{initial_level}</span>
+            </td>
+            <td>
+                <button class="level-up-button" on:click={increment("init")}>+</button>
+            </td>
+
+            <td>
+                <img width="32px" src="/bg/levelupdirection.png" alt="">
+            </td>
+
+            <td>
+                <button class="level-up-button" on:click={decrement("goal")}>-</button>
+            </td>
+            <td>
+                <span class="level-up-number">{goal_level}</span>
+            </td>
+            <td>
+                <button class="level-up-button" on:click={increment("goal")}>+</button>
             </td>
         </tr>
     </table>
 
-    <!-- {#if initial_level < 20 && goal_level >= 20}
-        <h2>Phase 1 Cost:
-            {#if sinner_class == "b"}
-                24000
-            {:else if sinner_class == "a"}
-                30000
-            {:else if sinner_class == "s"}
-                36000
-            {/if}
-        </h2>
-    {/if}
-    {#if initial_level < 40 && goal_level >= 40}
-        <h2>Phase 2 Cost:
-            {#if sinner_class == "b"}
-                80000
-            {:else if sinner_class == "a"}
-                100000
-            {:else if sinner_class == "s"}
-                120000
-            {/if}
-        </h2>
-    {/if}
-    {#if initial_level < 70 && goal_level >= 70}
-        <h2>Phase 3 Cost:
-            {#if sinner_class == "b"}
-                350000
-            {:else if sinner_class == "a"}
-                480000
-            {:else if sinner_class == "s"}
-                560000
-            {/if}
-        </h2>
-    {/if} -->
+    {#if sinner == "Sinner" || sinner == ""}
+        <h1>a</h1>
+    {:else}
+        <h1>Currency Needed:</h1>
+        <table>
+            <tr>
+                <td>
+                    <div class="mat_rarity_2">
+                        <CardImage>
+                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
+                            <img style="width: {image_size}px" src="currency/discoin.png" alt="">
+                            <span>{Discoins[sinner_class][goal_level] - Discoins[sinner_class][initial_level]}</span>
+                        </CardImage>
+                    </div>
+                </td>
+                <td>
+                    <div class="mat_rarity_2">
+                        <CardImage>
+                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
+                            <img style="width: {image_size}px" src="currency/mania.png" alt="">
+                            <span>{Mania[sinner_class][goal_level] - Mania[sinner_class][initial_level]}</span>
+                        </CardImage>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
-    <h1>Materials Needed:</h1>
-    {#if initial_level < 20 && goal_level >= 20}
-        <table>
-            <tr>
-                <th colspan="4">Phase 1 Cost:</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="mat_rarity_{mat_cost_rarity[0][0] + 1}">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px;" src="rarity/rarity_{mat_cost_rarity[0][0] + 1}.png" alt="">
-                            <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                            <img style="width: {image_size}px" src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[0][0]}.png" alt="">
-                            <span>{mat_cost[0][0]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-                <td>
-                    <div class="mat_rarity_{mat_cost_rarity[0][1]}">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[0][1]}.png" alt="">
-                            <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                            <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[0][1]}.png" alt="">
-                            <span>{mat_cost[0][1]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-                <td>
-                    <div class="mat_rarity_{mat_cost_rarity[0][2]}">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[0][2]}.png" alt="">
-                            <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                            <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[0][2]}.png" alt="">
-                            <span>{mat_cost[0][2]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-                <td>
-                    <div class="mat_rarity_2">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
-                            <img style="width: {image_size}px" src="currency/discoin.png" alt="">
-                            <span>{discoin_cost[0]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <!-- {#if initial_level < 20 && goal_level >= 20}
+            <h2>Phase 1 Cost:
+                {#if sinner_class == "b"}
+                    24000
+                {:else if sinner_class == "a"}
+                    30000
+                {:else if sinner_class == "s"}
+                    36000
+                {/if}
+            </h2>
+        {/if}
+        {#if initial_level < 40 && goal_level >= 40}
+            <h2>Phase 2 Cost:
+                {#if sinner_class == "b"}
+                    80000
+                {:else if sinner_class == "a"}
+                    100000
+                {:else if sinner_class == "s"}
+                    120000
+                {/if}
+            </h2>
+        {/if}
+        {#if initial_level < 70 && goal_level >= 70}
+            <h2>Phase 3 Cost:
+                {#if sinner_class == "b"}
+                    350000
+                {:else if sinner_class == "a"}
+                    480000
+                {:else if sinner_class == "s"}
+                    560000
+                {/if}
+            </h2>
+        {/if} -->
+
+        <h1>Materials Needed:</h1>
+        {#if initial_level < 20 && goal_level >= 20}
+            <table>
+                <tr>
+                    <th colspan="4">Phase 1 Cost:</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="mat_rarity_{mat_cost_rarity[0][0] + 1}">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px;" src="rarity/rarity_{mat_cost_rarity[0][0] + 1}.png" alt="">
+                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
+                                <img style="width: {image_size}px" src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[0][0]}.png" alt="">
+                                <span>{mat_cost[0][0]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mat_rarity_{mat_cost_rarity[0][1]}">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[0][1]}.png" alt="">
+                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
+                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[0][1]}.png" alt="">
+                                <span>{mat_cost[0][1]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mat_rarity_{mat_cost_rarity[0][2]}">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[0][2]}.png" alt="">
+                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
+                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[0][2]}.png" alt="">
+                                <span>{mat_cost[0][2]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mat_rarity_2">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
+                                <img style="width: {image_size}px" src="currency/discoin.png" alt="">
+                                <span>{discoin_cost[0]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        {/if}
+        {#if initial_level < 40 && goal_level >= 40}
+            <table>
+                <tr>
+                    <th colspan="4">Phase 2 Cost:</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="mat_rarity_{mat_cost_rarity[1][0] + 1}">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[1][0] + 1}.png" alt="">
+                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
+                                <img style="width: {image_size}px" src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[1][0]}.png" alt="">
+                                <span>{mat_cost[1][0]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mat_rarity_{mat_cost_rarity[1][1]}">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[1][1]}.png" alt="">
+                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
+                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[1][1]}.png" alt="">
+                                <span>{mat_cost[1][1]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mat_rarity_{mat_cost_rarity[1][2]}">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[1][2]}.png" alt="">
+                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
+                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[1][2]}.png" alt="">
+                                <span>{mat_cost[1][2]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mat_rarity_2">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
+                                <img style="width: {image_size}px" src="currency/discoin.png" alt="">
+                                <span>{discoin_cost[1]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        {/if}
+        {#if initial_level < 70 && goal_level >= 70}
+            <table>
+                <tr>
+                    <th colspan="4">Phase 3 Cost:</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="mat_rarity_{mat_cost_rarity[2][0] + 1}">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[2][0] + 1}.png" alt="">
+                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
+                                <img style="width: {image_size}px" src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[2][0]}.png" alt="">
+                                <span>{mat_cost[2][0]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mat_rarity_{mat_cost_rarity[2][1]}">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[2][1]}.png" alt="">
+                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
+                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[2][1]}.png" alt="">
+                                <span>{mat_cost[2][1]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mat_rarity_{mat_cost_rarity[2][2]}">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[2][2]}.png" alt="">
+                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
+                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[2][2]}.png" alt="">
+                                <span>{mat_cost[2][2]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mat_rarity_2">
+                            <CardImage>
+                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
+                                <img style="width: {image_size}px" src="currency/discoin.png" alt="">
+                                <span>{discoin_cost[2]}</span>
+                            </CardImage>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        {/if}
     {/if}
-    {#if initial_level < 40 && goal_level >= 40}
-        <table>
-            <tr>
-                <th colspan="4">Phase 2 Cost:</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="mat_rarity_{mat_cost_rarity[1][0] + 1}">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[1][0] + 1}.png" alt="">
-                            <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                            <img style="width: {image_size}px" src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[1][0]}.png" alt="">
-                            <span>{mat_cost[1][0]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-                <td>
-                    <div class="mat_rarity_{mat_cost_rarity[1][1]}">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[1][1]}.png" alt="">
-                            <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                            <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[1][1]}.png" alt="">
-                            <span>{mat_cost[1][1]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-                <td>
-                    <div class="mat_rarity_{mat_cost_rarity[1][2]}">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[1][2]}.png" alt="">
-                            <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                            <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[1][2]}.png" alt="">
-                            <span>{mat_cost[1][2]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-                <td>
-                    <div class="mat_rarity_2">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
-                            <img style="width: {image_size}px" src="currency/discoin.png" alt="">
-                            <span>{discoin_cost[1]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    {/if}
-    {#if initial_level < 70 && goal_level >= 70}
-        <table>
-            <tr>
-                <th colspan="4">Phase 3 Cost:</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="mat_rarity_{mat_cost_rarity[2][0] + 1}">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[2][0] + 1}.png" alt="">
-                            <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                            <img style="width: {image_size}px" src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[2][0]}.png" alt="">
-                            <span>{mat_cost[2][0]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-                <td>
-                    <div class="mat_rarity_{mat_cost_rarity[2][1]}">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[2][1]}.png" alt="">
-                            <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                            <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[2][1]}.png" alt="">
-                            <span>{mat_cost[2][1]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-                <td>
-                    <div class="mat_rarity_{mat_cost_rarity[2][2]}">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[2][2]}.png" alt="">
-                            <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                            <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[2][2]}.png" alt="">
-                            <span>{mat_cost[2][2]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-                <td>
-                    <div class="mat_rarity_2">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
-                            <img style="width: {image_size}px" src="currency/discoin.png" alt="">
-                            <span>{discoin_cost[2]}</span>
-                        </CardImage>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    {/if}
-{/if}
+</div>
+
+
 
 <style lang="scss">
-
     :global(body) {
         font-family: 'Pretendard Medium';
         background: url("/bg/closeup.png");
@@ -350,6 +346,32 @@
         background-attachment: fixed;
         background-size: cover;
         color: white;
+
+        margin: 0px;
+    }
+
+    #sinner-selection {
+        text-align: center;
+
+        img {
+            width: 300px;
+            height: 200px;
+            
+            object-fit: cover;
+            object-position: top;
+        }
+
+        h1 {
+            margin-top: -50px;
+            font-family: 'DFLiSong Std W7';
+        }
+
+    }
+
+    #sinner-details {
+        padding: 8px;
+        width: 100%;
+        background-color: black;
     }
 
     .level-up-button {
