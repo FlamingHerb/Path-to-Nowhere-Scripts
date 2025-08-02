@@ -9,22 +9,22 @@ importers:
   .:
     devDependencies:
       '@sveltejs/adapter-auto':
-        specifier: ^2.0.0
+        specifier: ^2.1.1
         version: 2.1.1(@sveltejs/kit@1.30.4(svelte@3.59.2)(vite@4.5.14(sass@1.89.2)))
       '@sveltejs/kit':
-        specifier: ^1.5.0
+        specifier: ^1.30.4
         version: 1.30.4(svelte@3.59.2)(vite@4.5.14(sass@1.89.2))
       '@sveltejs/vite-plugin-svelte':
-        specifier: ^2.4.2
+        specifier: ^2.5.3
         version: 2.5.3(svelte@3.59.2)(vite@4.5.14(sass@1.89.2))
       sass:
-        specifier: ^1.63.6
+        specifier: ^1.89.2
         version: 1.89.2
       svelte:
-        specifier: ^3.54.0
+        specifier: ^3.59.2
         version: 3.59.2
       vite:
-        specifier: ^4.3.0
+        specifier: ^4.5.14
         version: 4.5.14(sass@1.89.2)
 
 packages:
@@ -165,8 +165,8 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  '@jridgewell/sourcemap-codec@1.5.0':
-    resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
+  '@jridgewell/sourcemap-codec@1.5.4':
+    resolution: {integrity: sha512-VT2+G1VQs/9oz078bLrYbecdZKs912zQlkelYpuf+SXF+QvZDYJlbx/LSx+meSAwdDFnF8FVXW92AVjjkVmgFw==}
 
   '@parcel/watcher-android-arm64@2.5.1':
     resolution: {integrity: sha512-KF8+j9nNbUN8vzOFDpRMsaKBHZ/mcjEjMToVMJOhTozkDonQFFrRcfdLWn6yWKCmJKmdVxSgHiYvTCef4/qcBA==}
@@ -563,7 +563,7 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@jridgewell/sourcemap-codec@1.5.0': {}
+  '@jridgewell/sourcemap-codec@1.5.4': {}
 
   '@parcel/watcher-android-arm64@2.5.1':
     optional: true
@@ -758,7 +758,7 @@ snapshots:
 
   magic-string@0.30.17:
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.0
+      '@jridgewell/sourcemap-codec': 1.5.4
 
   micromatch@4.0.8:
     dependencies:
