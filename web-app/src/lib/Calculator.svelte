@@ -7,7 +7,7 @@
 
     let initial_level = 1;              // Range: 1 - 89
     let goal_level = 70;                 // Range: 2 - 90
-    let sinner = "Sinner";                    // For now, ignore.
+    let sinner = "Pepper";                    // For now, ignore.
     let sinner_class = "b";
     let refreshes = 0;                  // Range: 0 - 10
     let black_key_available = false;
@@ -136,22 +136,28 @@
         <table>
             <tbody>
                 <tr>
+                <!-- DisCoins -->
                 <td>
                     <div class="mat_rarity_2">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
-                            <img style="width: {image_size}px" src="currency/discoin.png" alt="">
-                            <span>{Discoins[sinner_class][goal_level] - Discoins[sinner_class][initial_level]}</span>
-                        </CardImage>
+                        <CardImage
+                            mat_type        = { "currency" }
+                            image_size      = { image_size }
+                            sinner_mat      = { "discoin" }
+                            mat_cost_rarity = { 2 }
+                            mat_cost        = { Discoins[sinner_class][goal_level] - Discoins[sinner_class][initial_level] }
+                        />
                     </div>
                 </td>
+                <!-- Mania -->
                 <td>
                     <div class="mat_rarity_2">
-                        <CardImage>
-                            <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
-                            <img style="width: {image_size}px" src="currency/mania.png" alt="">
-                            <span>{Mania[sinner_class][goal_level] - Mania[sinner_class][initial_level]}</span>
-                        </CardImage>
+                        <CardImage
+                            mat_type        = { "currency" }
+                            image_size      = { image_size }
+                            sinner_mat      = { "mania" }
+                            mat_cost_rarity = { mat_cost_rarity[0][0] }
+                            mat_cost        = { Mania[sinner_class][goal_level] - Mania[sinner_class][initial_level] }
+                        />
                     </div>
                 </td>
             </tr>
@@ -203,42 +209,47 @@
                 <tbody>
                     <tr>
                     <td>
-                        <div class="mat_rarity_{mat_cost_rarity[0][0] + 1}">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px;" src="rarity/rarity_{mat_cost_rarity[0][0] + 1}.png" alt="">
-                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                                <img style="width: {image_size}px" src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[0][0]}.png" alt="">
-                                <span>{mat_cost[0][0]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "fluid" }
+                                image_size      = { image_size }
+                                sinner_mat      = { Sinners[sinner].tendency }
+                                mat_cost_rarity = { mat_cost_rarity[0][0]}
+                                mat_cost        = { mat_cost[0][0] }
+                            />
                         </div>
                     </td>
                     <td>
-                        <div class="mat_rarity_{mat_cost_rarity[0][1]}">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[0][1]}.png" alt="">
-                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[0][1]}.png" alt="">
-                                <span>{mat_cost[0][1]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "material" }
+                                image_size      = { image_size }
+                                sinner_mat      = { Sinners[sinner].rum_1 }
+                                mat_cost_rarity = { mat_cost_rarity[0][1] }
+                                mat_cost        = { mat_cost[0][1] }
+                            />
                         </div>
                     </td>
                     <td>
-                        <div class="mat_rarity_{mat_cost_rarity[0][2]}">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[0][2]}.png" alt="">
-                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[0][2]}.png" alt="">
-                                <span>{mat_cost[0][2]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "material" }
+                                image_size      = { image_size }
+                                sinner_mat      = { Sinners[sinner].rum_2 }
+                                mat_cost_rarity = { mat_cost_rarity[0][2] }
+                                mat_cost        = { mat_cost[0][2] }
+                            />
                         </div>
                     </td>
                     <td>
-                        <div class="mat_rarity_2">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
-                                <img style="width: {image_size}px" src="currency/discoin.png" alt="">
-                                <span>{discoin_cost[0]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "currency" }
+                                image_size      = { image_size }
+                                sinner_mat      = { "discoin" }
+                                mat_cost_rarity = { 2 }
+                                mat_cost        = { discoin_cost[0] }
+                            />
                         </div>
                     </td>
                 </tr>
@@ -255,42 +266,47 @@
                 <tbody>
                     <tr>
                     <td>
-                        <div class="mat_rarity_{mat_cost_rarity[1][0] + 1}">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[1][0] + 1}.png" alt="">
-                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                                <img style="width: {image_size}px" src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[1][0]}.png" alt="">
-                                <span>{mat_cost[1][0]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "fluid" }
+                                image_size      = { image_size }
+                                sinner_mat      = { Sinners[sinner].tendency }
+                                mat_cost_rarity = { mat_cost_rarity[1][0]}
+                                mat_cost        = { mat_cost[1][0] }
+                            />
                         </div>
                     </td>
                     <td>
-                        <div class="mat_rarity_{mat_cost_rarity[1][1]}">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[1][1]}.png" alt="">
-                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[1][1]}.png" alt="">
-                                <span>{mat_cost[1][1]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "material" }
+                                image_size      = { image_size }
+                                sinner_mat      = { Sinners[sinner].rum_1 }
+                                mat_cost_rarity = { mat_cost_rarity[1][1] }
+                                mat_cost        = { mat_cost[1][1] }
+                            />
                         </div>
                     </td>
                     <td>
-                        <div class="mat_rarity_{mat_cost_rarity[1][2]}">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[1][2]}.png" alt="">
-                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[1][2]}.png" alt="">
-                                <span>{mat_cost[1][2]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "material" }
+                                image_size      = { image_size }
+                                sinner_mat      = { Sinners[sinner].rum_2 }
+                                mat_cost_rarity = { mat_cost_rarity[1][2] }
+                                mat_cost        = { mat_cost[1][2] }
+                            />
                         </div>
                     </td>
                     <td>
-                        <div class="mat_rarity_2">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
-                                <img style="width: {image_size}px" src="currency/discoin.png" alt="">
-                                <span>{discoin_cost[1]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "currency" }
+                                image_size      = { image_size }
+                                sinner_mat      = { "discoin" }
+                                mat_cost_rarity = { 2 }
+                                mat_cost        = { discoin_cost[1] }
+                            />
                         </div>
                     </td>
                 </tr>
@@ -307,42 +323,47 @@
                 <tbody>
                     <tr>
                     <td>
-                        <div class="mat_rarity_{mat_cost_rarity[2][0] + 1}">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[2][0] + 1}.png" alt="">
-                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                                <img style="width: {image_size}px" src="fluid/{Sinners[sinner].tendency}_{mat_cost_rarity[2][0]}.png" alt="">
-                                <span>{mat_cost[2][0]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "fluid" }
+                                image_size      = { image_size }
+                                sinner_mat      = { Sinners[sinner].tendency }
+                                mat_cost_rarity = { mat_cost_rarity[2][0]}
+                                mat_cost        = { mat_cost[2][0] }
+                            />
                         </div>
                     </td>
                     <td>
-                        <div class="mat_rarity_{mat_cost_rarity[2][1]}">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[2][1]}.png" alt="">
-                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_1}_{mat_cost_rarity[2][1]}.png" alt="">
-                                <span>{mat_cost[2][1]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "material" }
+                                image_size      = { image_size }
+                                sinner_mat      = { Sinners[sinner].rum_1 }
+                                mat_cost_rarity = { mat_cost_rarity[2][1] }
+                                mat_cost        = { mat_cost[2][1] }
+                            />
                         </div>
                     </td>
                     <td>
-                        <div class="mat_rarity_{mat_cost_rarity[2][2]}">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{mat_cost_rarity[2][2]}.png" alt="">
-                                <img class="mat_overlay" style="width: {image_size}px" src="material/material_overlay.png" alt="">
-                                <img style="width: {image_size}px" src="material/{Sinners[sinner].rum_2}_{mat_cost_rarity[2][2]}.png" alt="">
-                                <span>{mat_cost[2][2]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "material" }
+                                image_size      = { image_size }
+                                sinner_mat      = { Sinners[sinner].rum_2 }
+                                mat_cost_rarity = { mat_cost_rarity[2][2] }
+                                mat_cost        = { mat_cost[2][2] }
+                            />
                         </div>
                     </td>
                     <td>
-                        <div class="mat_rarity_2">
-                            <CardImage>
-                                <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_2.png" alt="">
-                                <img style="width: {image_size}px" src="currency/discoin.png" alt="">
-                                <span>{discoin_cost[2]}</span>
-                            </CardImage>
+                        <div>
+                            <CardImage
+                                mat_type        = { "currency" }
+                                image_size      = { image_size }
+                                sinner_mat      = { "discoin" }
+                                mat_cost_rarity = { 2 }
+                                mat_cost        = { discoin_cost[2] }
+                            />
                         </div>
                     </td>
                 </tr>
