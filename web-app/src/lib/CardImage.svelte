@@ -46,12 +46,12 @@
 
     .matcard :global(span) {
         font-family: 'HYQiHeiB5-55';
-        font-size: 0.6rem;
+        font-size: 9.6px;
         position:absolute;
         background-color: rgba(0,0,0,0.69);
         color: #fff;
         text-align: right;
-        width: 62px;
+        width: 64px;
         padding-right: 2px;
         bottom:0;
         right:0;

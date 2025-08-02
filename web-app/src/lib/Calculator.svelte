@@ -69,7 +69,7 @@
 
 </script>
 
-<div class="grid grid-cols-1 md:grid-cols-[30%_70%] place-items-center h-screen">
+<div class="grid grid-cols-1 md:grid-cols-[30%_70%]  h-screen">
     <div class="bg-[url(/bg/closeup.png)] bg-center ">
         <img src="profiles/{sinner.toLowerCase()}.png" alt="{sinner}'s Image" class="mx-auto">
         <!-- <h1 class="font-dflisong text-white text-center text-5xl">{sinner}</h1> -->
@@ -89,50 +89,29 @@
     <div id="sinner-details" class="bg-black text-white ">
         <input hidden bind:value={initial_level}/>
         <input hidden bind:value={goal_level}/>
-    
-        <table class="mx-auto">
-            <thead>
-                <tr>
-                    <td colspan="3">
-                        Initial Level
-                    </td>
-                    <td>
-    
-                    </td>
-                    <td colspan="3">
-                        Goal Level
-                    </td>
-                </tr>
-            </thead>
-            <!-- Numbers and transition-->
-            <tbody>
-                    <tr>
-                    <td>
-                        <button class="level-up-button" on:click={decrement("init")}>-</button>
-                    </td>
-                    <td>
-                        <span class="level-up-number">{initial_level}</span>
-                    </td>
-                    <td>
-                        <button class="level-up-button" on:click={increment("init")}>+</button>
-                    </td>
-    
-                    <td>
-                        <img width="32px" src="/bg/levelupdirection.png" alt="">
-                    </td>
-    
-                    <td>
-                        <button class="level-up-button" on:click={decrement("goal")}>-</button>
-                    </td>
-                    <td>
-                        <span class="level-up-number">{goal_level}</span>
-                    </td>
-                    <td>
-                        <button class="level-up-button" on:click={increment("goal")}>+</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+        <div class="grid grid-cols-3 grid-rows-2 mx-auto size-fit my-10">
+            <p class="text-center">Initial Level</p>
+            <p></p>
+            <p class="text-center">Goal Level</p>
+
+            <div class="mx-auto">
+                <button class="level-up-button" on:click={decrement("init")}>-</button>
+                <span class="level-up-number mx-5">{initial_level}</span>
+                <button class="level-up-button" on:click={increment("init")}>+</button>
+            </div>
+            
+
+            <img class="w-[32px] mx-auto" src="/bg/levelupdirection.png" alt="">
+
+            <div class="mx-auto">
+                <button class="level-up-button" on:click={decrement("goal")}>-</button>
+                <span class="level-up-number mx-5">{goal_level}</span>
+                <button class="level-up-button" on:click={increment("goal")}>+</button>
+            </div>
+            
+        </div>
+
     
         {#if sinner == "Sinner" || sinner == ""}
             <h1>a</h1>
@@ -205,179 +184,50 @@
     
             <h2 class="text-3xl font-dflisong text-center">Materials Needed:</h2>
             {#if initial_level < 20 && goal_level >= 20}
-                <table class="mx-auto">
-                    <thead>
-                        <tr>
-                            <th colspan="4">Phase 1 Cost:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "fluid" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { Sinners[sinner].tendency }
-                                    mat_cost_rarity = { mat_cost_rarity[0][0]}
-                                    mat_cost        = { mat_cost[0][0] }
-                                />
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "material" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { Sinners[sinner].rum_1 }
-                                    mat_cost_rarity = { mat_cost_rarity[0][1] }
-                                    mat_cost        = { mat_cost[0][1] }
-                                />
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "material" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { Sinners[sinner].rum_2 }
-                                    mat_cost_rarity = { mat_cost_rarity[0][2] }
-                                    mat_cost        = { mat_cost[0][2] }
-                                />
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "currency" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { "discoin" }
-                                    mat_cost_rarity = { 2 }
-                                    mat_cost        = { discoin_cost[0] }
-                                />
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                {@render phase_costs(0)}
             {/if}
             {#if initial_level < 40 && goal_level >= 40}
-                <table class="mx-auto">
-                    <thead>
-                        <tr>
-                        <th colspan="4">Phase 2 Cost:</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "fluid" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { Sinners[sinner].tendency }
-                                    mat_cost_rarity = { mat_cost_rarity[1][0]}
-                                    mat_cost        = { mat_cost[1][0] }
-                                />
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "material" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { Sinners[sinner].rum_1 }
-                                    mat_cost_rarity = { mat_cost_rarity[1][1] }
-                                    mat_cost        = { mat_cost[1][1] }
-                                />
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "material" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { Sinners[sinner].rum_2 }
-                                    mat_cost_rarity = { mat_cost_rarity[1][2] }
-                                    mat_cost        = { mat_cost[1][2] }
-                                />
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "currency" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { "discoin" }
-                                    mat_cost_rarity = { 2 }
-                                    mat_cost        = { discoin_cost[1] }
-                                />
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                {@render phase_costs(1)}
             {/if}
             {#if initial_level < 70 && goal_level >= 70}
-                <table class="mx-auto">
-                    <thead>
-                        <tr>
-                        <th colspan="4">Phase 3 Cost:</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "fluid" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { Sinners[sinner].tendency }
-                                    mat_cost_rarity = { mat_cost_rarity[2][0]}
-                                    mat_cost        = { mat_cost[2][0] }
-                                />
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "material" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { Sinners[sinner].rum_1 }
-                                    mat_cost_rarity = { mat_cost_rarity[2][1] }
-                                    mat_cost        = { mat_cost[2][1] }
-                                />
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "material" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { Sinners[sinner].rum_2 }
-                                    mat_cost_rarity = { mat_cost_rarity[2][2] }
-                                    mat_cost        = { mat_cost[2][2] }
-                                />
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <CardImage
-                                    mat_type        = { "currency" }
-                                    image_size      = { image_size }
-                                    sinner_mat      = { "discoin" }
-                                    mat_cost_rarity = { 2 }
-                                    mat_cost        = { discoin_cost[2] }
-                                />
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                {@render phase_costs(2)}
             {/if}
         {/if}
     </div>
 </div>
 
 
+{#snippet phase_costs(current_phase)}
+<h2 class="text-center font-bold text-2xl">Phase {current_phase + 1} Cost:</h2>
+<div class="grid grid-cols-4 w-[260px] mx-auto">
+    <CardImage
+        mat_type        = { "fluid" }
+        image_size      = { image_size }
+        sinner_mat      = { Sinners[sinner].tendency }
+        mat_cost_rarity = { mat_cost_rarity[current_phase][0]}
+        mat_cost        = { mat_cost[current_phase][0] }
+    />
+    <CardImage
+        mat_type        = { "material" }
+        image_size      = { image_size }
+        sinner_mat      = { Sinners[sinner].rum_1 }
+        mat_cost_rarity = { mat_cost_rarity[current_phase][1] }
+        mat_cost        = { mat_cost[current_phase][1] }
+    />
+    <CardImage
+        mat_type        = { "material" }
+        image_size      = { image_size }
+        sinner_mat      = { Sinners[sinner].rum_2 }
+        mat_cost_rarity = { mat_cost_rarity[current_phase][2] }
+        mat_cost        = { mat_cost[current_phase][2] }
+    />
+    <CardImage
+        mat_type        = { "currency" }
+        image_size      = { image_size }
+        sinner_mat      = { "discoin" }
+        mat_cost_rarity = { 2 }
+        mat_cost        = { discoin_cost[current_phase] }
+    />
+</div>    
 
+{/snippet}
