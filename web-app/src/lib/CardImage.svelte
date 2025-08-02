@@ -10,7 +10,7 @@
 </script>
 
 
-<div class="matcard">
+<div class="matcard h-[64px]">
     <img class="mat_overlay" style="width: {image_size}px" src="rarity/rarity_{ mat_type == "fluid" ? mat_cost_rarity + 1 : mat_cost_rarity }.png" alt="">
     {#if mat_type == "currency"}
         <img style="width: {image_size}px" src="currency/{sinner_mat}.png" alt="">
