@@ -354,5 +354,3 @@
 </div>
 
 
-
-<style lang="scss">/*$$__STYLE_CONTENT__$$*/</style>

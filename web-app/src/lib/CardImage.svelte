@@ -8,7 +8,7 @@
     {@render children?.()}
 </div>
 
-<style lang="scss">
+<style>
     
 
     .matcard {

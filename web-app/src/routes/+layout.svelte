@@ -1,5 +1,5 @@
 <script>
-  import "../app.scss";
+  import "../app.css";
   /** @type {{children?: import('svelte').Snippet}} */
   let { children } = $props();
 </script>
