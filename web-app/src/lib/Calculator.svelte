@@ -87,43 +87,47 @@
     <input hidden bind:value={goal_level}/>
 
     <table id="level-up-prompt" style="margin: auto;">
-        <tr>
-            <td colspan="3">
-                Initial Level
-            </td>
-            <td>
+        <thead>
+            <tr>
+                <td colspan="3">
+                    Initial Level
+                </td>
+                <td>
 
-            </td>
-            <td colspan="3">
-                Goal Level
-            </td>
-        </tr>
+                </td>
+                <td colspan="3">
+                    Goal Level
+                </td>
+            </tr>
+        </thead>
         <!-- Numbers and transition-->
-        <tr>
-            <td>
-                <button class="level-up-button" on:click={decrement("init")}>-</button>
-            </td>
-            <td>
-                <span class="level-up-number">{initial_level}</span>
-            </td>
-            <td>
-                <button class="level-up-button" on:click={increment("init")}>+</button>
-            </td>
+        <tbody>
+                <tr>
+                <td>
+                    <button class="level-up-button" on:click={decrement("init")}>-</button>
+                </td>
+                <td>
+                    <span class="level-up-number">{initial_level}</span>
+                </td>
+                <td>
+                    <button class="level-up-button" on:click={increment("init")}>+</button>
+                </td>
 
-            <td>
-                <img width="32px" src="/bg/levelupdirection.png" alt="">
-            </td>
+                <td>
+                    <img width="32px" src="/bg/levelupdirection.png" alt="">
+                </td>
 
-            <td>
-                <button class="level-up-button" on:click={decrement("goal")}>-</button>
-            </td>
-            <td>
-                <span class="level-up-number">{goal_level}</span>
-            </td>
-            <td>
-                <button class="level-up-button" on:click={increment("goal")}>+</button>
-            </td>
-        </tr>
+                <td>
+                    <button class="level-up-button" on:click={decrement("goal")}>-</button>
+                </td>
+                <td>
+                    <span class="level-up-number">{goal_level}</span>
+                </td>
+                <td>
+                    <button class="level-up-button" on:click={increment("goal")}>+</button>
+                </td>
+            </tr>
+        </tbody>
     </table>
 
     {#if sinner == "Sinner" || sinner == ""}
@@ -131,7 +135,8 @@
     {:else}
         <!-- <h1>Currency Needed:</h1> -->
         <table>
-            <tr>
+            <tbody>
+                <tr>
                 <td>
                     <div class="mat_rarity_2">
                         <CardImage>
@@ -151,6 +156,7 @@
                     </div>
                 </td>
             </tr>
+            </tbody>
         </table>
 
         <!-- {#if initial_level < 20 && goal_level >= 20}
@@ -190,10 +196,13 @@
         <h1>Materials Needed:</h1>
         {#if initial_level < 20 && goal_level >= 20}
             <table>
-                <tr>
-                    <th colspan="4">Phase 1 Cost:</th>
-                </tr>
-                <tr>
+                <thead>
+                    <tr>
+                        <th colspan="4">Phase 1 Cost:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
                     <td>
                         <div class="mat_rarity_{mat_cost_rarity[0][0] + 1}">
                             <CardImage>
@@ -234,14 +243,18 @@
                         </div>
                     </td>
                 </tr>
+                </tbody>
             </table>
         {/if}
         {#if initial_level < 40 && goal_level >= 40}
             <table>
-                <tr>
+                <thead>
+                    <tr>
                     <th colspan="4">Phase 2 Cost:</th>
                 </tr>
-                <tr>
+                </thead>
+                <tbody>
+                    <tr>
                     <td>
                         <div class="mat_rarity_{mat_cost_rarity[1][0] + 1}">
                             <CardImage>
@@ -282,14 +295,18 @@
                         </div>
                     </td>
                 </tr>
+                </tbody>
             </table>
         {/if}
         {#if initial_level < 70 && goal_level >= 70}
             <table>
-                <tr>
+                <thead>
+                    <tr>
                     <th colspan="4">Phase 3 Cost:</th>
                 </tr>
-                <tr>
+                </thead>
+                <tbody>
+                    <tr>
                     <td>
                         <div class="mat_rarity_{mat_cost_rarity[2][0] + 1}">
                             <CardImage>
@@ -330,6 +347,7 @@
                         </div>
                     </td>
                 </tr>
+                </tbody>
             </table>
         {/if}
     {/if}
