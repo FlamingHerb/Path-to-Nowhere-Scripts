@@ -29,3 +29,10 @@
     font-weight: 400;
     src: url('/fonts/Pretendard-Medium.ttf') format('truetype');
 }
+
+@theme {
+    --font-dflisong: "DFLiSong Std W7", sans-serif; 
+    --font-suit: "Suit SemiBold", sans-serif; 
+    --font-hyq: "HYQiHeiB5-55", sans-serif; 
+    --font-pretendard: "Pretendard Medium", serif; 
+}
